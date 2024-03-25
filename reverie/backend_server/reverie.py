@@ -151,6 +151,7 @@ class ReverieServer:
     curr_step = dict()
     curr_step["step"] = self.step
     with open(f"{fs_temp_storage}/curr_step.json", "w") as outfile: 
+      print("**************************************saving curr step", self.step)
       outfile.write(json.dumps(curr_step, indent=2))
 
 
@@ -400,6 +401,12 @@ class ReverieServer:
           curr_move_file = f"{sim_folder}/movement/{self.step}.json"
           with open(curr_move_file, "w") as outfile: 
             outfile.write(json.dumps(movements, indent=2))
+          
+          curr_step = dict()
+          curr_step["step"] = self.step
+          with open(f"{fs_temp_storage}/curr_step.json", "w") as outfile:
+            print("**************************************saving curr step", self.step)
+            outfile.write(json.dumps(curr_step, indent=2))
 
           # After this cycle, the world takes one step forward, and the 
           # current time moves by <sec_per_step> amount. 

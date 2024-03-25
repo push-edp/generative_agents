@@ -209,7 +209,7 @@ def GPT_request(prompt, gpt_parameter):
   temp_sleep()
   try: 
     response = openai.Completion.create(
-                model=gpt_parameter["engine"],
+                model="gpt-3.5-turbo-instruct", #gpt_parameter["engine"],
                 prompt=prompt,
                 temperature=gpt_parameter["temperature"],
                 max_tokens=gpt_parameter["max_tokens"],
